@@ -12,8 +12,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <springframework.boot.version>1.5.2.RELEASE</springframework.boot.version>
+        <spring.data.mongodb.version>1.10.1.RELEASE</spring.data.mongodb.version>
         <springfox-swagger2.version>2.6.1</springfox-swagger2.version>
-        <lombok.version>1.16.14.0</lombok.version>
+        <lombok.version>1.16.10</lombok.version>
+        <org.mapstruct.version>1.0.0.Final</org.mapstruct.version>
+        <maven.compiler.plugin.version>3.0</maven.compiler.plugin.version>
     </properties>
 
     <dependencies>
@@ -41,8 +44,20 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+            <version>${spring.data.mongodb.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${org.mapstruct.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
-            <artifactId>lombok-maven</artifactId>
+            <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
         </dependency>
 
@@ -51,18 +66,26 @@
 
     <build>
         <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
+
         </plugins>
     </build>
 </project>
