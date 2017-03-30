@@ -1,5 +1,6 @@
-package hello;
+package com.springBoot.project;
 
+import com.springBoot.project.util.swigger.SwaggerConfig;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +13,7 @@ import java.util.Arrays;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(new Class<?>[] {Application.class, SwaggerConfig.class}, args);
     }
 
     @Bean
