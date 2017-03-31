@@ -1,4 +1,4 @@
-package com.springBoot.project.rest.controller.data.vo;
+package com.springBoot.project.rest.data.vo;
 
 public class UserVO {
 
