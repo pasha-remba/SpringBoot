@@ -9,6 +9,8 @@ public interface UserRepositoryCustom {
 
     List<UserEntity> findByFirstName(String firstName, PaginationDTO paginationDTO);
     List<UserEntity> findByIdAndFirstName(String id, String firstName);
-    long findByIdAndFirstName(String firstName);
+    List<UserEntity> findBy(String field, PaginationDTO paginationDTO);
+    long countUsers(String field);
+
 
 }

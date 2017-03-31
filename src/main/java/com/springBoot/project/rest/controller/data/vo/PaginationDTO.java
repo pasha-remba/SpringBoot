@@ -4,17 +4,10 @@ import com.springBoot.project.enumeration.SortOrder;
 
 public class PaginationDTO {
 
-    private SortOrder sortOrder;
     private Integer startPage;
     private Integer endPage;
-
-    public SortOrder getSortOrder() {
-        return sortOrder;
-    }
-
-    public void setSortOrder(SortOrder sortOrder) {
-        this.sortOrder = sortOrder;
-    }
+    private SortOrder sortOrder;
+    private String findBy;
 
     public Integer getStartPage() {
         return startPage;
@@ -32,4 +25,19 @@ public class PaginationDTO {
         this.endPage = endPage;
     }
 
+    public SortOrder getSortOrder() {
+        return sortOrder;
+    }
+
+    public void setSortOrder(SortOrder sortOrder) {
+        this.sortOrder = sortOrder;
+    }
+
+    public String getFindBy() {
+        return findBy;
+    }
+
+    public void setFindBy(String findBy) {
+        this.findBy = findBy;
+    }
 }

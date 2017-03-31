@@ -14,6 +14,7 @@ public interface UserService {
     UserEntity updateUser(UserEntity userEntity);
     List<UserEntity> getAllUsers();
     UserEntity getUserById(String id);
-    long findByIdAndFirstName(String firstName);
+    long countUsers(String firstName);
+    List<UserEntity> findBy(String field, PaginationDTO paginationDTO);
 
 }

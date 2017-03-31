@@ -43,8 +43,14 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
     }
 
     @Override
-    public long findByIdAndFirstName(String firstName) {
-        Query query = Query.query(Criteria.where("firstName").is(firstName));
+    public List<UserEntity> findBy(String field, PaginationDTO paginationDTO) {
+        Query query = Query.query(Criteria.where("field").is(field));
+        return mongoTemplate.find(getListResults(query, field, paginationDTO), UserEntity.class);
+    }
+
+    @Override
+    public long countUsers(String field) {
+        Query query = Query.query(Criteria.where(field).is(field));
         return mongoTemplate.find(query, UserEntity.class).size();
     }
 

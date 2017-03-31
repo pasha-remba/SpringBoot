@@ -51,8 +51,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public long findByIdAndFirstName(String firstName) {
-        return userRepository.findByIdAndFirstName(firstName);
+    public long countUsers(String firstName) {
+        return userRepository.countUsers(firstName);
+    }
+
+    @Override
+    public List<UserEntity> findBy(String field, PaginationDTO paginationDTO) {
+        return userRepository.findBy(field, paginationDTO);
     }
 
 }
